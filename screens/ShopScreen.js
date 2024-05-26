@@ -6,7 +6,7 @@ import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 import InfoShopScreenModal from '../components/InfoShopScreenModal';
 
 
-function ShopScreen({ userData, updateUser }) {
+function ShopScreen({ userData, updateUser, api }) {
   // krepšelio logika
   const [credits, setCredits] = useState(10);
   const creditPrice = 2;
@@ -16,8 +16,7 @@ function ShopScreen({ userData, updateUser }) {
   // mokėjimo lango inicijavimo komponentai
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const [loading, setLoading] = useState(false);
-  const API_URL = 'http://10.0.2.2:8080'
-  
+  const API_URL = api
 
   // prideda kreditų į krepšelį
   const addCredits = () => {

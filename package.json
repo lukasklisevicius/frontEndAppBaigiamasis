@@ -31,7 +31,8 @@
     "react-native-screens": "~3.29.0",
     "react-native-safe-area-context": "4.8.2",
     "expo-image": "~1.10.6",
-    "@stripe/stripe-react-native": "~0.35.1"
+    "@stripe/stripe-react-native": "~0.35.1",
+    "expo-splash-screen": "~0.26.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

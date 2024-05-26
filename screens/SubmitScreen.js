@@ -7,7 +7,7 @@ import InputModal from '../components/InputModal';
 import { FontAwesome5 } from '@expo/vector-icons';
 import InfoSubmitModal from '../components/InfoSubmitModal';
 
-function SubmitScreen({ route, navigation }) {
+function SubmitScreen({ route, navigation, api }) {
   // Ekrano kintamieji
   const { groupData, participants, userData } = route.params;
   const [text1, setText1] = useState('');
@@ -15,22 +15,13 @@ function SubmitScreen({ route, navigation }) {
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [infoSubmitModal, setInfoSubmitModalVisisble] = useState(false)
+  const API_URL = api
+  console.log(api)
+
 
   // Gauti duomenis apie pranešimą
   useEffect(() => {
     getTexts();
-
-    // Stebėti interneto ryšį
-    // const unsubscribe = NetInfo.addEventListener((state) => {
-    //   console.log(state)
-    //   if (state.isWifiEnabled === false) {
-    //     Alert.alert('Nėra interneto', 'Įjunkite interneto ryšį!', [{ onPress: () => DevSettings.reload() }]);
-    //   } else if (state.isConnected === true) {
-        
-    //   }
-    // });
-
-    // return () => unsubscribe();
   }, []);
 
   // Gauti duomenis apie žinutes
@@ -40,8 +31,8 @@ function SubmitScreen({ route, navigation }) {
       if (storedText1 !== null) {
         setText1(storedText1);
       } else {
-        // const defaultText1 = 'Labas, tu turi padovanoti dovana:';
-        const defaultText1 = 'Tex1:';
+        const defaultText1 = 'Labas, tu turi padovanoti dovana:';
+        // const defaultText1 = 'Tex1:';
         setText1(defaultText1);
         await AsyncStorage.setItem(`text1_${groupData.name}`, defaultText1);
       }
@@ -50,8 +41,8 @@ function SubmitScreen({ route, navigation }) {
       if (storedText2 !== null) {
         setText2(storedText2);
       } else {
-        // const defaultText2 = 'Dovana už 20Eur. \nData: 2024-12-25';
-        const defaultText2 = 'Text2';
+        const defaultText2 = 'Dovana už 20Eur. \nData: 2024-12-25';
+        // const defaultText2 = 'Text2';
         setText2(defaultText2);
         await AsyncStorage.setItem(`text2_${groupData.name}`, defaultText2);
       }
@@ -95,8 +86,7 @@ function SubmitScreen({ route, navigation }) {
   // Siūsti SMS pranešimus
   const sendSms = async (userData, participants, text1, text2) => {
     try {
-      // const response = await fetch(`https://giftersms-pcukbfonwq-lz.a.run.app/user/${userId}`);
-      const response = await fetch(`http://10.0.2.2:8080/sendMessages/`, {
+      const response = await fetch(`${API_URL}/sendMessages/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

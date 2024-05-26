@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   container: {},
   header: {
     backgroundColor: '#95d5fc',
-    marginTop: Constants.statusBarHeight + 15,
+    marginTop: Constants.statusBarHeight,
     paddingVertical: 20,
     paddingBottom: 30,
     paddingHorizontal: 40,

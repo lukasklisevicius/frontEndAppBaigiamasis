@@ -2,10 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { Alert, DevSettings, StyleSheet, Text, View } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as SplashScreen from 'expo-splash-screen';
+
 import HomeScreen from './screens/HomeScreen'
 import ShopScreen from './screens/ShopScreen';
 import Header from './components/Header';
@@ -18,7 +21,24 @@ export default function App() {
   const Stack = createStackNavigator();
   const [userId, setUserId] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [appIsReady, setAppIsReady] = useState(false);
+  // const API_URL = 'http://10.0.2.2:8080'
+  const API_URL = 'https://giftersms-pcukbfonwq-lz.a.run.app'
+
+  SplashScreen.preventAutoHideAsync();
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+
+    prepare();
+  }, []);
 
   // Užkraunant programėlę gaunami vartotojo duomenys
   useEffect(() => {
@@ -26,6 +46,7 @@ export default function App() {
       try {
         const storedUserId = await AsyncStorage.getItem('userId');
         if (storedUserId !== null) {
+          // console.log(storedUserId)
           setUserId(storedUserId);
           fetchUser(storedUserId);
         } else {
@@ -37,7 +58,7 @@ export default function App() {
       } catch (error) {
         console.error('Klaida gaunant vartotojo ID:', error);
       } finally {
-        setLoading(false);
+
       }
     };
 
@@ -59,11 +80,13 @@ export default function App() {
   // Gauti vartotojo duomenis
   const fetchUser = async (userId) => {
     try {
-      // const response = await fetch(`https://giftersms-pcukbfonwq-lz.a.run.app/user/${userId}`);
-      const response = await fetch(`http://10.0.2.2:8080/user/${userId}`)
+      const response = await fetch(`${API_URL}/user/${userId}`)
       const data = await response.json();
       if (response.ok) {
         setUserData(data);
+
+        onLayoutRootView()
+
       } else {
         // console.error('Klaida gaunant vartotojo duomenis:', data.error);
         // Alert.alert('Klaida!', 'Klaida gaunant vartotojo duomenis.')
@@ -77,20 +100,18 @@ export default function App() {
   // Sukurti vartotoją
   const createUser = async (userId) => {
     try {
-      // change fetch url!!!!!!!!!!!!!!!!!
-      const response = await fetch('http://10.0.2.2:8080/user', {
+      const response = await fetch(`${API_URL}/user`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ userId }),
       });
-      const data = await response.json();
       if (response.ok) {
         console.log('Vartotojas sukurtas sėkmingai');
       } else {
-        console.error('Klaida kuriant naują vartotoją:', data.error);
-        Alert.alert('Klaida!', 'klaida kuriant jūsų vartotoją.')
+        console.error('Klaida kuriant naują vartotoją:', response);
+        Alert.alert('Klaida!', 'klaida vartotoją.')
       }
     } catch (error) {
       console.error('Klaida kuriant naują vartotoją:', error);
@@ -105,15 +126,16 @@ export default function App() {
     // console.log('user updated!')
   };
 
-  // Jei programėlė kraunasi rodyti Laukimo komponentą
-  if (loading) {
-    return (
-      <View >
-        <StatusBar backgroundColor="#95d5fc" color="white" barStyle="light-content" />
-        <Text>Palaukite...</Text>
-      </View>
-    );
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
   }
+
 
   // Programėlės Struktūra
   return (
@@ -134,13 +156,13 @@ export default function App() {
         <Stack.Screen name="Shop" options={{
           title: "Shop",
         }}>
-          {props => <ShopScreen {...props} userData={userData} updateUser={updateUser} />}
+          {props => <ShopScreen {...props} userData={userData} updateUser={updateUser} api={API_URL} />}
         </Stack.Screen>
         <Stack.Screen name="GroupScreen">
           {props => <GroupScreen {...props} userData={userData} />}
         </Stack.Screen>
         <Stack.Screen name="SubmitScreen">
-          {props => <SubmitScreen {...props} userData={userData} />}
+          {props => <SubmitScreen {...props} userData={userData} api={API_URL} />}
         </Stack.Screen>
         <Stack.Screen
           name="FinalScreen"
