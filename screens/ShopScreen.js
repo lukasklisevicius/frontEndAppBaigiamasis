@@ -9,7 +9,7 @@ import InfoShopScreenModal from '../components/InfoShopScreenModal';
 function ShopScreen({ userData, updateUser, api }) {
   // krepšelio logika
   const [credits, setCredits] = useState(10);
-  const creditPrice = 2;
+  const creditPrice = 3;
   const totalPrice = (credits / 10) * creditPrice;
 
   const [infoShopModal, setInfoShopModalVisisble] = useState(false)
@@ -45,7 +45,7 @@ function ShopScreen({ userData, updateUser, api }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ UUID: userData.UUID, cost: totalPrice * 100, credits: credits })
+      body: JSON.stringify({ UUID: userData.UUID, cost: totalPrice, credits: credits })
     });
     const { paymentIntent, ephemeralKey, customer } = await response.json();
 
