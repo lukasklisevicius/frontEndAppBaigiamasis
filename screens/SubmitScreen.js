@@ -16,7 +16,7 @@ function SubmitScreen({ route, navigation, api }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [infoSubmitModal, setInfoSubmitModalVisisble] = useState(false)
   const API_URL = api
-  console.log(api)
+
 
 
   // Gauti duomenis apie pranešimą
@@ -127,7 +127,7 @@ function SubmitScreen({ route, navigation, api }) {
           <LinearGradient colors={['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#d9effc']} start={{ x: 0.0, y: 0.1 }} end={{ x: 0.5, y: 1.0 }} style={[{ borderWidth: 2, borderTopLeftRadius: 35, borderTopRightRadius: 15, padding: 20 }, styles.elevation]}>
             <Text style={{ fontSize: 16 }}>
               <Text>{text1}</Text>
-              <Text style={{ fontWeight: 'bold' }}> Martynas</Text>
+              <Text style={{ fontWeight: 'bold' }}> {participants[1].name}</Text>
               <Text>.</Text>
               <Text>{text2}</Text>
             </Text>
