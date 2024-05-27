@@ -13,11 +13,11 @@ const InfoSubmitModal = ({ isVisible, onClose }) => {
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
           <Text>Siunčiamų pranešimų šablonas.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/11.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/11.png')} />
           <Text>Redaguoti siunčiamą pranešimą: paspauskite mygtuką "Redaguoti". bus atidaromas modulinis langas.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/12.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/12.png')} />
           <Text>Siūsti pranešimus: paspauskite mygtuką "Išsiūsti pranešimus", grupės dalyviai bus atsitiktinai paskirstyti ir jiems išsiunčiami jūsų suformuoti pranešimai. </Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/13.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/13.png')} />
           <TouchableOpacity onPress={onClose} style={[styles.button, styles.elevation, { marginTop: 20 }]}>
             <Text style={styles.submitButtonText}>Supratau</Text>
           </TouchableOpacity>

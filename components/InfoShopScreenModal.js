@@ -13,13 +13,13 @@ const InfoShopScreenModal = ({ isVisible, onClose }) => {
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
           <Text>Pridėti kreditų: paspauskite dešinėje esantį mygtuką (+), pasirinkite kiek kreditų norite įsigyti.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/14.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/14.png')} />
           <Text>Atimti kreditų: paspauskite kairėje esantį mygtuką (-), pasirinkite kiek kreditų norite įsigyti.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/15.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/15.png')} />
           <Text>Įsigyjamų kreditu kaina:</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/16.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/16.png')} />
           <Text>Mokėti: paspaudę mygtuką "Įsigyti", atidaromas mokėjimo modalinis langas.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/17.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/17.png')} />
           <TouchableOpacity onPress={onClose} style={[styles.button, styles.elevation, { marginTop: 20 }]}>
             <Text style={styles.submitButtonText}>Supratau</Text>
           </TouchableOpacity>

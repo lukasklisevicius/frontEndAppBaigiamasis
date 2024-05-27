@@ -14,13 +14,13 @@ const InfoGroupModal = ({ isVisible, onClose }) => {
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
           <Text>Pridėkite dalyvį: paspauskite dešinėje esantį mėlyna (+) mygtuką. Atidaromas modalinis langas.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/5.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/5.png')} />
           <Text>Redaguokite dalyvio duomenis: paspauskite ant dalyvio kortelės.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/6.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/6.png')} />
           <Text>Ištrinkite dalyvį: paslinkite grupės kortelę į kairę, atidengiate mygtuką, paspaudus ant mygtuko pasirinktas dalyvis yra ištrinamas.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/7.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/7.png')} />
           <Text>Pateikite dalyvių sąrašą: paspauskite mygtuką "Pateikti". Būsite perkeliamas į žinutės formatavimo langą.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/10.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/10.png')} />
           <TouchableOpacity onPress={onClose} style={[styles.button, styles.elevation, { marginTop: 20 }]}>
             <Text style={styles.submitButtonText}>Supratau</Text>
           </TouchableOpacity>

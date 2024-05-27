@@ -13,13 +13,13 @@ const InfoHomeModal = ({ isVisible, onClose }) => {
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
           <Text>Pridėkite grupę: Įveskite grupės pavadinimą ir paspauskite dešinėje esantį mėlyna (+) mygtuką.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/1.png')} />
-          <Text>Kopijuokite grupę: paslinkite grupės kortelę į dešinę, atidengiate mygtuką, paspaudus ant mygtuko įveskite naują grupės pavadinimą. grupė yra nukopijuojama su joje esančiais dalyviais.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/2.png')} />
-          <Text>Ištrinkite grupę: paslinkite grupės kortelę į kairę, atidengiate mygtuką, paspaudus ant mygtuko pasirinkta grupė yra ištrinama.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/3.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/1.png')} />
+          <Text>Kopijuokite grupę: paslinkite grupės kortelę į dešinę, paspaustkite mygtuką, įveskite naują grupės pavadinimą.</Text>
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/2.png')} />
+          <Text>Ištrinkite grupę: paslinkite grupės kortelę į kairę, paspauskite mygtuką.</Text>
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/3.png')} />
           <Text>Paspaudę ant grupės kortelės, atidarote pasirinktos grupės langą, galite pridėti dalyvius.</Text>
-          <Image style={{ width: '100%', objectFit: 'contain' }} source={require('../assets/tutorial/4.png')} />
+          <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/4.png')} />
           <TouchableOpacity onPress={onClose} style={[styles.button, styles.elevation, { marginTop: 20 }]}>
             <Text style={styles.submitButtonText}>Supratau</Text>
           </TouchableOpacity>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    width: '100%',
+    width: '80%',
     backgroundColor: '#0553',
   },
 });
