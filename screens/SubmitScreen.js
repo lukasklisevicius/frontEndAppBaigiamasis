@@ -40,7 +40,7 @@ function SubmitScreen({ route, navigation, api }) {
       if (storedText2 !== null) {
         setText2(storedText2);
       } else {
-        const defaultText2 = 'Dovana iki 20Eur. \nData: 2024-12-25';
+        const defaultText2 = ' Dovana iki 20Eur. \nData: 2024-12-25';
         // const defaultText2 = 'Text2';
         setText2(defaultText2);
         await AsyncStorage.setItem(`text2_${groupData.name}`, defaultText2);
@@ -73,8 +73,8 @@ function SubmitScreen({ route, navigation, api }) {
   // Vykdyti SMS siuntimą
   const handleSendSMS = async () => {
     Alert.alert(
-      'Išsiūsti žinutes',
-      `Ar tikrai norite išsiųsti žinutes? \nBus nuskaityti:${participants.length} kreditai`,
+      'Išsiųsti pranešimus',
+      `Ar tikrai norite išsiųsti pranešimus? \nBus nuskaityti: ${participants.length} kreditai`,
       [
         {
           text: 'Atšaukti',
