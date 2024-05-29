@@ -12,7 +12,7 @@ const InfoHomeModal = ({ isVisible, onClose }) => {
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
-          <Text>Pridėkite grupę: Įveskite grupės pavadinimą ir paspauskite dešinėje esantį mėlyna (+) mygtuką.</Text>
+          <Text>Pridėkite grupę: įveskite grupės pavadinimą ir paspauskite dešinėje esantį mėlyna (+) mygtuką.</Text>
           <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/1.png')} />
           <Text>Kopijuokite grupę: paslinkite grupės kortelę į dešinę, paspaustkite mygtuką, įveskite naują grupės pavadinimą.</Text>
           <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/2.png')} />

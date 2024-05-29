@@ -14,7 +14,7 @@ const InfoModal = ({ isVisible, onClose }) => {
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={{ fontSize: 18, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Informacija</Text>
-          <Text style={{ marginBottom: 5 }}>Ši "Gifters SMS" programėlė skirta slaptūjų kalėdų senelių paskirstymui.</Text>
+          <Text style={{ marginBottom: 5 }}>Ši "Gifters SMS" programėlė skirta slaptųjų kalėdų senelių paskirstymui.</Text>
           <Text style={{ marginBottom: 5 }}>Programėlėje galima sukurti grupes, grupėje pridėti dalyvių sąrašą. Paskui suformuoti trumposios žinutės SMS pranešimą. Dalyviai yra atsitiktinai sumaišomi ir jiems yra išsiunčiami pranešimai.</Text>
           <Text style={{ marginBottom: 5, fontWeight: 600 }}>1 kreditas yra lygus 1 pranešimui.</Text>
           <Text style={{ marginBottom: 5 }}>Kreditų galima įsigyti programėlės parduotuvėje</Text>

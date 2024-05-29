@@ -11,7 +11,7 @@ function ShopScreen({ userData, updateUser, api }) {
   const [credits, setCredits] = useState(10);
   const creditPrice = 3;
   const totalPrice = (credits / 10) * creditPrice;
-
+  const publishableKey = 'pk_test_51PIHtxEplgX5jlCdw8WbNGfIrLsrsvuVRiwiO6wDeOz2z33XVM1593Y9CCMDfrvPBzKsxcYxRhn6Pu3faDkWliby00XOWmzJRO'
   const [infoShopModal, setInfoShopModalVisisble] = useState(false)
   // mokėjimo lango inicijavimo komponentai
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
@@ -99,7 +99,7 @@ function ShopScreen({ userData, updateUser, api }) {
 
   // rodomas ekranas
   return (
-    <StripeProvider publishableKey="pk_test_51PIHtxEplgX5jlCdw8WbNGfIrLsrsvuVRiwiO6wDeOz2z33XVM1593Y9CCMDfrvPBzKsxcYxRhn6Pu3faDkWliby00XOWmzJRO">
+    <StripeProvider publishableKey={publishableKey}>
       <LinearGradient colors={['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#d9effc']} start={{ x: 0.0, y: 0.1 }} end={{ x: 0.5, y: 1.0 }} style={styles.container}>
         <View style={{ width: '100%' }}>
           <View style={styles.headerContainer}>

@@ -35,7 +35,7 @@ const EditContactModal = ({ isVisible, onClose, onSave, initialName, initialPhon
             placeholder="Telefono numeris"
             value={phoneNumber}
             onChangeText={(text) => setPhoneNumber(text)}
-            keyboardType="numeric"
+            keyboardType="phone-pad"
           />
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={onClose}>

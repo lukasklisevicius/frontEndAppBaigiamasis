@@ -16,7 +16,7 @@ const InfoSubmitModal = ({ isVisible, onClose }) => {
           <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/11.png')} />
           <Text>Redaguoti siunčiamą pranešimą: paspauskite mygtuką "Redaguoti". bus atidaromas modulinis langas.</Text>
           <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/12.png')} />
-          <Text>Siūsti pranešimus: paspauskite mygtuką "Išsiūsti pranešimus", grupės dalyviai bus atsitiktinai paskirstyti ir jiems išsiunčiami jūsų suformuoti pranešimai. </Text>
+          <Text>Siųsti pranešimus: paspauskite mygtuką "Išsiųsti pranešimus", grupės dalyviai bus atsitiktinai paskirstyti ir jiems išsiunčiami jūsų suformuoti pranešimai. </Text>
           <Image style={{ width: '80%', objectFit: 'contain', alignSelf:'center' }} source={require('../assets/tutorial/13.png')} />
           <TouchableOpacity onPress={onClose} style={[styles.button, styles.elevation, { marginTop: 20 }]}>
             <Text style={styles.submitButtonText}>Supratau</Text>

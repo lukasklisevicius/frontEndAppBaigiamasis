@@ -23,7 +23,7 @@ const InputModal = ({ visible, setVisible, onSave, initialText1, initialText2 })
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text style={styles.modalHeading}>Redaguoti dalyvio duomenis</Text>
+          <Text style={styles.modalHeading}>Redaguoti žinutę</Text>
           <TextInput
             style={styles.input}
             maxLength={68}

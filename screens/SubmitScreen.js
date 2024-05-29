@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator,DevSettings, } from 'react-native';
-import NetInfo from '@react-native-community/netinfo';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
 import InputModal from '../components/InputModal';
@@ -41,7 +40,7 @@ function SubmitScreen({ route, navigation, api }) {
       if (storedText2 !== null) {
         setText2(storedText2);
       } else {
-        const defaultText2 = 'Dovana už 20Eur. \nData: 2024-12-25';
+        const defaultText2 = 'Dovana iki 20Eur. \nData: 2024-12-25';
         // const defaultText2 = 'Text2';
         setText2(defaultText2);
         await AsyncStorage.setItem(`text2_${groupData.name}`, defaultText2);
@@ -73,8 +72,30 @@ function SubmitScreen({ route, navigation, api }) {
 
   // Vykdyti SMS siuntimą
   const handleSendSMS = async () => {
-    setLoading(true)
-    sendSms(userData.UUID, participants, text1, text2)
+    Alert.alert(
+      'Išsiūsti žinutes',
+      `Ar tikrai norite išsiųsti žinutes? \nBus nuskaityti:${participants.length} kreditai`,
+      [
+        {
+          text: 'Atšaukti',
+          style: 'cancel',
+        },
+        {
+          text: 'Išsiųsti',
+          onPress: async () => {
+            try {
+              setLoading(true); 
+              await sendSms(userData.UUID, participants, text1, text2);  
+            } catch (error) {
+              console.error('Klaida:', error); 
+            } finally {
+              setLoading(false); 
+            }
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   // Išsaugoti žinutės redagavimą iš modalinio lango
@@ -97,7 +118,7 @@ function SubmitScreen({ route, navigation, api }) {
       if (response.ok) {
         navigation.navigate('FinalScreen', { groupData, participants, userData, text1, text2 });
       } else {
-        Alert.alert('Klaida:', 'Nepavyko išsiūsti pranešimų!\nKreditai nenuskaičiuoti.\nBandykite vėl!')
+        Alert.alert('Klaida:', 'Nepavyko išsiųsti pranešimų!\nKreditai nenuskaičiuoti.\nBandykite vėl!')
         setLoading(false)
       }
     } catch (error) {
@@ -123,7 +144,7 @@ function SubmitScreen({ route, navigation, api }) {
       </View>
       <View style={{ justifyContent: 'space-between', flex: 1 }}>
         <View>
-          <Text style={{ marginBottom: 5 }}>Siunčiamo pranešimo pavizdys:</Text>
+          <Text style={{ marginBottom: 5 }}>Siunčiamo pranešimo pavyzdys:</Text>
           <LinearGradient colors={['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#d9effc']} start={{ x: 0.0, y: 0.1 }} end={{ x: 0.5, y: 1.0 }} style={[{ borderWidth: 2, borderTopLeftRadius: 35, borderTopRightRadius: 15, padding: 20 }, styles.elevation]}>
             <Text style={{ fontSize: 16 }}>
               <Text>{text1}</Text>
@@ -143,7 +164,7 @@ function SubmitScreen({ route, navigation, api }) {
             {loading ? (
               <ActivityIndicator color="black" style={{ padding: 5 }} />
             ) : (
-              <Text style={styles.sendButtonText}>Išsiūsti pranešimus</Text>
+              <Text style={styles.sendButtonText}>Išsiųsti pranešimus</Text>
             )}
           </LinearGradient>
         </TouchableOpacity>
