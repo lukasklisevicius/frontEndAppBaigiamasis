@@ -40,9 +40,9 @@ const FinalScreen = ({ route }) => {
           <Text>grupės </Text>
           <Text style={{ fontWeight: 600, textTransform: 'uppercase' }}>{groupData.name} </Text>
           <Text>dalyviams, </Text>
-          <Text>Išsiūsti trumpieji SMS pranešimai.</Text>
+          <Text>Išsiųsti trumpieji SMS pranešimai.</Text>
         </Text>
-        <Text style={{ fontSize: 24, fontWeight: 600, marginVertical: 10 }}>Linksmos šventės!</Text>
+        <Text style={{ fontSize: 24, fontWeight: 600, marginVertical: 10 }}>Linksmų šventčių!</Text>
       </View>
       <View style={{ width: '100%', padding: 35 }}>
         <TouchableOpacity onPress={goHome}>

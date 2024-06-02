@@ -30,7 +30,7 @@ function SubmitScreen({ route, navigation, api }) {
       if (storedText1 !== null) {
         setText1(storedText1);
       } else {
-        const defaultText1 = 'Labas, tu turi padovanoti dovana:';
+        const defaultText1 = 'Labas, tau paskirta dovanoti:';
         // const defaultText1 = 'Tex1:';
         setText1(defaultText1);
         await AsyncStorage.setItem(`text1_${groupData.name}`, defaultText1);
