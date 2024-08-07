@@ -10,13 +10,13 @@ The final project before graduation is dedicated to obtaining a professional bac
 This is a simple app for **Android OS** smartphones developed with **React Native**.</br>
 The main task of this app is to manage and organise **Secret Santa Game** for your friends and family.</br>
 </br>
-The app lets users see their data (credits)
-The app lets users buy more credits (by debit/credit card)
+- The app lets users see their data (credits)
+- The app lets users buy more credits (by debit/credit card)
 - The app lets users create a group
 - App lets users manage (add, edit, delete) group participants
-The app lets users create and edit message
-The app lets users send messages (if the group have at least 3 participants, and the user has enough credits)
-- After the user sends messages, the App automaticaly mixes participants (one rule, participant cant have himself as a gift receiver), and generates messages for each participant before sending</br>
+- The app lets users create and edit the message
+- The app lets users send messages (if the group have at least 3 participants, and the user has enough credits)
+- After the user sends messages, the App automatically mixes participants (one rule, participant cant have himself as a gift receiver), and generates messages for each participant before sending</br>
 </br>
 To download this App (still active) to your phone check releases - https://github.com/lukasklisevicius/frontEndAppBaigiamasis/releases/tag/v1.0_apk
 
