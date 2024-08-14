@@ -18,7 +18,7 @@ The main task of this app is to manage and organise **Secret Santa Game** for yo
 - The app lets users send messages (if the group have at least 3 participants, and the user has enough credits)
 - After the user sends messages, the App automatically mixes participants (one rule, participant cant have himself as a gift receiver), and generates messages for each participant before sending</br>
 </br>
-To download this App (still active) to your phone check releases - https://github.com/lukasklisevicius/frontEndAppBaigiamasis/releases/tag/v1.0_apk
+
 
 ### App screens
 <table>
